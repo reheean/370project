@@ -33,9 +33,9 @@
   <!-- 
     - preload images
   -->
-    <link rel="preload" as="image" href="/image/preloader1.jpg">
-    <link rel="preload" as="image" href="/image/preloader2.jpg">
-    <link rel="preload" as="image" href="/image/preloader3.jpg">
+    <link rel="preload" as="image" href="/370project/image/preloader1.jpg">
+    <link rel="preload" as="image" href="/370project/image/preloader2.jpg">
+    <link rel="preload" as="image" href="/370project/image/preloader3.jpg">
 
 </head>
 
@@ -105,7 +105,7 @@
       <div class="container">
 
           <a href="#" class="logo">
-              <img src="/image/logo.svg" width="160" height="50" alt="Spice - Home">
+              <img src="/370project/image/logo.svg" width="160" height="50" alt="Spice - Home">
           </a>
 
       <nav class="navbar" data-navbar>
@@ -115,7 +115,7 @@
       </button>
 
       <a href="#" class="logo">
-          <img src="/image/logo.svg" width="160" height="50" alt="Spice - Home">
+          <img src="/370project/image/logo.svg" width="160" height="50" alt="Spice - Home">
       </a>
 
       <ul class="navbar-list">
@@ -273,7 +273,7 @@
 
                 </form>
 
-                <div class="form-right text-center" style="background-image: url('./assets/images/form-pattern.png')">
+                <div class="form-right text-center" style="background-image: url('./assets/370project/images/form-pattern.png')">
 
                 <h2 class="headline-1 text-center">Contact Us</h2>
 
@@ -310,7 +310,7 @@
         </section>
 
     <footer class="footer section has-bg-image text-center"
-    style="background-image: url('/image/footer-bg.jpg')">
+    style="background-image: url('/370project/image/footer-bg.jpg')">
     <div class="container">
 
 
