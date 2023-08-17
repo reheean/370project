@@ -1,38 +1,43 @@
+<?php include 'config.php'; ?>
+
 <?php
 
-@include 'config.php';
+session_start();
 
-if(isset($_POST['submit'])){
-
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $pass = md5($_POST['password']);
-    $cpass = md5($_POST['cpassword']);
-    $user_type = $_POST['user_type'];
+    $pass = md5($_POST['password']); // MD5 is not recommended for password hashing due to security vulnerabilities
 
-    $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
+    $select = "SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
 
     $result = mysqli_query($conn, $select);
 
-    if(mysqli_num_rows($result) > 0){
+    if ($result) {
+        file_put_contents('debug.log', "Query executed successfully\n", FILE_APPEND);
 
-        $error[] = 'user already exist!';
-
-    }else{
-
-        f($pass != $cpass){
-            $error[] = 'password not matched!';
-        }else{
-            $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES('$name','$email','$pass','$user_type')";
-            mysqli_query($conn, $insert);
-            header('location:login_form.php');
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            file_put_contents('debug.log', $row['user_type'], FILE_APPEND);
+            if ($row['user_type'] == 'Admin') {
+                $_SESSION['email'] = $row['email'];
+                echo '<script>window.location.href = "admin_panel.php";</script>';
+                exit();
+            } elseif ($row['user_type'] == 'User') {
+                $_SESSION['email'] = $row['email'];
+                echo '<script>window.location.href = "index.php";</script>';
+                exit();
+            }
+        } else {
+            $error = 'Incorrect email or password!';
+            file_put_contents('debug.log', "No rows found: $error\n", FILE_APPEND);
         }
+    } else {
+        $error = mysqli_error($conn); // Capture the actual database error
+        file_put_contents('debug.log', "Query error: $error\n", FILE_APPEND);
     }
-
-};
-
-
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,14 +68,14 @@ if(isset($_POST['submit'])){
   <!-- 
     - custom css link
   -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/370project/css/style.css">
 
   <!-- 
     - preload images
   -->
-    <link rel="preload" as="image" href="/image/preloader1.jpg">
-    <link rel="preload" as="image" href="/image/preloader2.jpg">
-    <link rel="preload" as="image" href="/image/preloader3.jpg">
+    <link rel="preload" as="image" href="/370project/image/preloader1.jpg">
+    <link rel="preload" as="image" href="/370project/image/preloader2.jpg">
+    <link rel="preload" as="image" href="/370project/image/preloader3.jpg">
 
 </head>
 
@@ -128,34 +133,28 @@ if(isset($_POST['submit'])){
     <main>
         <article>
         <section class="login" aria-label="login" id="login">
-        <div class="form-container">
-            <form action="" method="post">
-                <h3>Register Now</h3>
-                <?php
-                if(isset($error)){
-                    foreach($error as $error){
-                        echo '<span class="error-msg">'.$error.'</span>';
+            <div class="form-container">
+                <form action="" method="post">
+                   <h3>Login now</h3>
+                    <?php
+                    if(isset($error)){
+                        foreach($error as $error){
+                            echo '<span class="error-msg">'.$error.'</span>';
+                        };
                     };
-                };
-                ?>
-                <input type="text" name="FName" required placeholder="First Name">
-                <input type="text" name="LName" required placeholder="Last Name">
-                <input type="email" name="email" required placeholder="Email">
-                <input type="password" name="password" required placeholder="Enter your password">
-                <input type="password" name="cpassword" required placeholder="Confirm your password">
-                <select name="User Type">
-                    <option value="User">User</option>
-                    <option value="Admin">Admin</option>
-                </select>
-                <input type="submit" name="Submit" value="Register Now" class="form-btn">
-                <p>Already have an account?<a href="/php/login.php">Login Now</a></p>
-            </form>
-        </div>
+                    ?>
+                   <input type="email" name="email" required placeholder="Enter your email">
+                   <input type="password" name="password" required placeholder="Enter your password">
+                   <input type="submit" name="submit" value="login now" class="form-btn">
+                   <p>Don't have an account? <a href="/370project/register.php">Register Now</a></p>
+                </form>
+             
+             </div>
         </section>
 
 
     <footer class="footer section has-bg-image text-center"
-    style="background-image: url('/image/footer-bg.jpg')">
+    style="background-image: url('/370project/image/footer-bg.jpg')">
     <div class="container">
 
 
@@ -183,7 +182,7 @@ if(isset($_POST['submit'])){
     <!-- 
     - custom js link
     -->
-    <script src="/js/script.js"></script>
+    <script src="/370project/js/script.js"></script>
     
     <!-- 
     - ionicon link

@@ -1,0 +1,210 @@
+<?php include 'config.php'; ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Spice Kitchen Admin Panel</title>
+  <link rel="stylesheet" href="/370project/css/admin.css">
+</head>
+
+<body>
+
+<?php
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    echo 'connected';
+
+    $conn->close();
+    ?>
+
+
+
+
+  <div class="header">
+    <h1>Spice Kitchen Admin Panel</h1>
+  </div>
+  <div class="container">
+    <div class="sidebar">
+      <div class="tab" onclick="openTab('menu')">Menu</div>
+      <div class="tab" onclick="openTab('reservation')">Reservations</div>
+      <div class="tab" onclick="openTab('employee')">Employees</div>
+    </div>
+    <div class="content">
+      <div class="menu-section" id="menu-section">
+        <h2>Menu Management</h2>
+        <div class="menu-item-header">
+          <div>Item Name</div>
+          <div>Price</div>
+          <div>Remove</div>
+        </div>
+        <div class="section-content" id="starter-section">
+          <div class="menu-item">
+            <p class="menu-item-name">Fries</p>
+            <input type="number" class="price-input" value="5">
+            <button class="delete-button" onclick="deleteMenuItem(this)">Delete</button>
+          </div>
+          <div class="menu-item">
+            <p class="menu-item-name">Wings</p>
+            <input type="number" class="price-input" value="8">
+            <button class="delete-button" onclick="deleteMenuItem(this)">Delete</button>
+          </div>
+          <button class="add-button" onclick="addNewItem('starter')">Add New Item</button>
+        </div>
+        <div class="section" id="reservation-section">
+          <h2>Reservation Management</h2>
+          <!-- Add button to cancel reservations -->
+          <div class="reservation-item">Reservation 1</div>
+          <div class="reservation-item">Reservation 2</div>
+          <div class="reservation-item">Reservation 3</div>
+        </div>
+        <div class="section" id="employee-section">
+          <h2>Employee Management</h2>
+          <!-- Add form for changing employee salaries -->
+          <div class="employee-item">Employee 1</div>
+          <div class="employee-item">Employee 2</div>
+          <div class="employee-item">Employee 3</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openTab(tabName) {
+        const sections = document.querySelectorAll('.section');
+        const tabs = document.querySelectorAll('.tab');
+
+        sections.forEach(section => {
+          section.classList.remove('active');
+        });
+
+        tabs.forEach(tab => {
+          tab.classList.remove('active-tab');
+        });
+
+        document.getElementById(tabName + '-section').classList.add('active');
+        document.querySelector(`.tab[onclick="openTab('${tabName}')"]`).classList.add('active-tab');
+      }
+      function addMenuItem() {
+        const menuSection = document.getElementById('menu-section');
+        const menuItem = document.createElement('div');
+        menuItem.classList.add('menu-item');
+
+        const itemNameInput = document.createElement('input');
+        itemNameInput.type = 'text';
+        itemNameInput.classList.add('menu-item-name');
+        itemNameInput.value = 'New Item';
+
+        const priceInput = document.createElement('input');
+        priceInput.type = 'number';
+        priceInput.classList.add('price-input');
+        priceInput.value = '0';
+
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = function () {
+          deleteMenuItem(this);
+        };
+
+        menuItem.appendChild(itemNameInput);
+        menuItem.appendChild(priceInput);
+        menuItem.appendChild(deleteButton);
+
+        menuSection.insertBefore(menuItem, menuSection.lastChild);
+      }
+
+      function deleteMenuItem(button) {
+        const menuItem = button.closest('.menu-item');
+        const sectionContent = menuItem.closest('.section-content');
+        sectionContent.removeChild(menuItem);
+      }
+
+      function addNewItem(section) {
+        const sectionContent = document.getElementById(`${section}-section`);
+        const newItem = document.createElement('div');
+        newItem.classList.add('menu-item');
+
+        const itemNameInput = document.createElement('input');
+        itemNameInput.type = 'text';
+        itemNameInput.classList.add('menu-item-name');
+        itemNameInput.placeholder = 'Enter item name';
+
+        const priceInput = document.createElement('input');
+        priceInput.type = 'number';
+        priceInput.classList.add('price-input');
+        priceInput.value = '0';
+
+        const addButton = document.createElement('button');
+        addButton.classList.add('add-button');
+        addButton.textContent = 'Add';
+        addButton.onclick = function () {
+          saveNewItem(this);
+        };
+
+        const cancelButton = document.createElement('button');
+        cancelButton.classList.add('delete-button');
+        cancelButton.textContent = 'Cancel';
+        cancelButton.onclick = function () {
+          cancelAddNewItem(this);
+        };
+
+        newItem.appendChild(itemNameInput);
+        newItem.appendChild(priceInput);
+        newItem.appendChild(addButton);
+        newItem.appendChild(cancelButton);
+
+        sectionContent.insertBefore(newItem, sectionContent.lastChild.previousSibling);
+      }
+
+      function saveNewItem(button) {
+        const newItem = button.parentNode;
+        const itemNameInput = newItem.querySelector('.menu-item-name');
+        const priceInput = newItem.querySelector('.price-input');
+
+        const itemName = itemNameInput.value;
+        const price = priceInput.value;
+
+        // Perform validation and save to backend if needed
+
+        // Replace the newItem form with a regular menu item display
+        const regularMenuItem = document.createElement('div');
+        regularMenuItem.classList.add('menu-item');
+
+        const itemNameDisplay = document.createElement('p');
+        itemNameDisplay.classList.add('menu-item-name');
+        itemNameDisplay.textContent = itemName;
+
+        const priceDisplay = document.createElement('input');
+        priceDisplay.classList.add('price-input');
+        priceDisplay.value = price;
+        priceDisplay.disabled = true;
+
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = function () {
+          deleteMenuItem(this);
+        };
+
+        regularMenuItem.appendChild(itemNameDisplay);
+        regularMenuItem.appendChild(priceDisplay);
+        regularMenuItem.appendChild(deleteButton);
+
+        newItem.parentNode.replaceChild(regularMenuItem, newItem);
+      }
+
+      function cancelAddNewItem(button) {
+        const newItem = button.parentNode;
+        newItem.parentNode.removeChild(newItem);
+      }
+    </script>
+</body>
+
+</html>
