@@ -9,7 +9,7 @@
     <title>Spice</title>
     <meta name="title" content="Spice">
     <meta name="description" content="Spice Website">
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="/css/style1.css">
 </head>
 <body>
     
@@ -28,7 +28,11 @@
                         <img src="image/menu-1" alt="">
                         <span>350bdt</span>
                         <h4>Cashewnut Salad</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
                         
                        
 
@@ -41,7 +45,11 @@
                         <img src="/image/wings.jpg" alt="">
                         <span>165bdt</span>
                         <h4>Buffalo Wings</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                     <div class="single-menu">
@@ -49,7 +57,11 @@
                         <img src="/image/frenchfries.jpg" alt="">
                         <span>100bdt</span>
                         <h4>French Fries</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                     <div class="single-menu">
@@ -57,15 +69,22 @@
                         <img src="/image/friend chicken.jpg" alt="">
                         <span>110bdt</span>
                         <h4>Fried Chicken</h4>
-                        <button>Add To Cart</button>
-    
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
                     </div>
                     <div class="single-menu">
                     
                         <img src="/image/onionrings.jpg" alt="">
                         <span>150bdt</span>
                         <h4>Onion Rings</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                 </div>
@@ -76,7 +95,11 @@
                         <img src="image/menu-3" alt="">
                         <span>300bdt</span>
                         <h4>Biriyani</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                     <div class="single-menu">
@@ -84,7 +107,11 @@
                         <img src="/image/menu-4.jpg" alt="">
                         <span>650bdt</span>
                         <h4>Classic Pizza</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                     <div class="single-menu">
@@ -92,7 +119,11 @@
                         <img src="/image/menu-2.jpg" alt="">
                         <span>670bdt</span>
                         <h4>Lasagna</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                     <div class="single-menu">
@@ -100,7 +131,11 @@
                         <img src="/image/chowmein.jpg" alt="">
                         <span>300bdt</span>
                         <h4>Chowmein</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                     <div class="single-menu">
@@ -108,7 +143,11 @@
                         <img src="/image/pasta.jpg" alt="">
                         <span>350bdt</span>
                         <h4>Baked Pasta</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                 </div>
@@ -119,7 +158,11 @@
                         <img src="/image/cheesecake.jpg" alt="">
                         <span>400bdt</span>
                         <h4>Cheese Cake</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                     <div class="single-menu">
@@ -127,7 +170,11 @@
                         <img src="/image/brownie.jpg" alt="">
                         <span>150bdt</span>
                         <h4>Brownie</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                     <div class="single-menu">
@@ -135,7 +182,11 @@
                         <img src="/image/pudding.jpg" alt="">
                         <span>200bdt</span>
                         <h4>Pudding</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                     
@@ -148,7 +199,11 @@
                         <img src="/image/coldcoffe.jpg" alt="">
                         <span>150bdt</span>
                         <h4>Cold Coffee</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                     <div class="single-menu">
@@ -156,7 +211,11 @@
                         <img src="/image/milkshake.jpg" alt="">
                         <span>200bdt</span>
                         <h4>Milk Shake</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                     <div class="single-menu">
@@ -164,7 +223,11 @@
                         <img src="/image/juice.jpg" alt="">
                         <span>150bdt</span>
                         <h4>Fresh Juice</h4>
-                        <button>Add To Cart</button>
+                        <a href="/php/login.php" class="bttn bttn-primary">
+                            <span class="text text-1">Add To Cart</span>
+
+                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
+                        </a>
     
                     </div>
                     
