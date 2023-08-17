@@ -3,16 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+  <!-- 
+    - primary meta tags
+  -->
     <title>Spice</title>
-    <meta name="title" content="Spice">
+    <meta name="title" content="Spice Restaurant">
     <meta name="description" content="Spice Website">
+
+  <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
     <link rel="stylesheet" href="/css/style1.css">
+
+  <!-- 
+    - preload images
+  -->
 </head>
+
 <body>
-    
+    <div class="preload" data-preaload>
+        <div class="circle"></div>
+        <p class="text">Spice</p>
+    </div>
     
     <section class="menus-area" style="background-image: url('img/back2.png');">
         <div class="container">
@@ -28,11 +54,7 @@
                         <img src="image/menu-1" alt="">
                         <span>350bdt</span>
                         <h4>Cashewnut Salad</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
                         
                        
 
@@ -45,11 +67,7 @@
                         <img src="/image/wings.jpg" alt="">
                         <span>165bdt</span>
                         <h4>Buffalo Wings</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
     
                     </div>
                     <div class="single-menu">
@@ -57,11 +75,7 @@
                         <img src="/image/frenchfries.jpg" alt="">
                         <span>100bdt</span>
                         <h4>French Fries</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
     
                     </div>
                     <div class="single-menu">
@@ -69,22 +83,14 @@
                         <img src="/image/friend chicken.jpg" alt="">
                         <span>110bdt</span>
                         <h4>Fried Chicken</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
                     </div>
                     <div class="single-menu">
                     
                         <img src="/image/onionrings.jpg" alt="">
                         <span>150bdt</span>
                         <h4>Onion Rings</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
     
                     </div>
                 </div>
@@ -95,11 +101,7 @@
                         <img src="image/menu-3" alt="">
                         <span>300bdt</span>
                         <h4>Biriyani</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
     
                     </div>
                     <div class="single-menu">
@@ -107,11 +109,7 @@
                         <img src="/image/menu-4.jpg" alt="">
                         <span>650bdt</span>
                         <h4>Classic Pizza</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
     
                     </div>
                     <div class="single-menu">
@@ -119,11 +117,7 @@
                         <img src="/image/menu-2.jpg" alt="">
                         <span>670bdt</span>
                         <h4>Lasagna</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
     
                     </div>
                     <div class="single-menu">
@@ -131,11 +125,7 @@
                         <img src="/image/chowmein.jpg" alt="">
                         <span>300bdt</span>
                         <h4>Chowmein</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
     
                     </div>
                     <div class="single-menu">
@@ -143,11 +133,7 @@
                         <img src="/image/pasta.jpg" alt="">
                         <span>350bdt</span>
                         <h4>Baked Pasta</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
     
                     </div>
                 </div>
@@ -158,11 +144,7 @@
                         <img src="/image/cheesecake.jpg" alt="">
                         <span>400bdt</span>
                         <h4>Cheese Cake</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
     
                     </div>
                     <div class="single-menu">
@@ -170,11 +152,7 @@
                         <img src="/image/brownie.jpg" alt="">
                         <span>150bdt</span>
                         <h4>Brownie</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
     
                     </div>
                     <div class="single-menu">
@@ -182,11 +160,7 @@
                         <img src="/image/pudding.jpg" alt="">
                         <span>200bdt</span>
                         <h4>Pudding</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
     
                     </div>
                     
@@ -199,11 +173,7 @@
                         <img src="/image/coldcoffe.jpg" alt="">
                         <span>150bdt</span>
                         <h4>Cold Coffee</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
     
                     </div>
                     <div class="single-menu">
@@ -211,23 +181,14 @@
                         <img src="/image/milkshake.jpg" alt="">
                         <span>200bdt</span>
                         <h4>Milk Shake</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
-    
+                        <button class="btn">Add To Cart</button>
                     </div>
                     <div class="single-menu">
                     
                         <img src="/image/juice.jpg" alt="">
                         <span>150bdt</span>
                         <h4>Fresh Juice</h4>
-                        <a href="/php/login.php" class="bttn bttn-primary">
-                            <span class="text text-1">Add To Cart</span>
-
-                            <span class="text text-2" aria-hidden="true">Add To Cart</span>
-                        </a>
+                        <button class="btn">Add To Cart</button>
     
                     </div>
                     
