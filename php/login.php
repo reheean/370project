@@ -1,0 +1,193 @@
+<?php
+
+@include 'config.php';
+
+session_start();
+
+if(isset($_POST['submit'])){
+
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $pass = md5($_POST['password']);
+    $cpass = md5($_POST['cpassword']);
+    $user_type = $_POST['user_type'];
+
+    $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
+
+    $result = mysqli_query($conn, $select);
+
+    if(mysqli_num_rows($result) > 0){
+
+        $row = mysqli_fetch_array($result);
+
+        if($row['user_type'] == 'admin'){
+
+            $_SESSION['admin_name'] = $row['name'];
+            header('location:admin_page.php');
+
+        }elseif($row['user_type'] == 'user'){
+
+            $_SESSION['user_name'] = $row['name'];
+            header('location:user_page.php');
+
+        }
+     
+    }else{
+        $error[] = 'incorrect email or password!';
+    }
+
+};
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+    <title>Spice-Login</title>
+    <meta name="title" content="Spice Restaurant">
+    <meta name="description" content="Spice Website">
+
+  <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+    <link rel="stylesheet" href="/css/style.css">
+
+  <!-- 
+    - preload images
+  -->
+    <link rel="preload" as="image" href="/image/preloader1.jpg">
+    <link rel="preload" as="image" href="/image/preloader2.jpg">
+    <link rel="preload" as="image" href="/image/preloader3.jpg">
+
+</head>
+
+
+<body id="top">
+    <div class="preload" data-preaload>
+        <div class="circle"></div>
+        <p class="text">Spice</p>
+    </div>
+
+    <div class="topbar">
+        <div class="container">
+
+            <address class="topbar-item">
+            <div class="icon">
+                <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+            </div>
+
+            <span class="span">
+                123 st, Dhaka, Bangladesh
+            </span>
+            </address>
+
+        <div class="separator"></div>
+
+        <div class="topbar-item item-2">
+            <div class="icon">
+                <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+            </div>
+
+            <span class="span">Daily : 8.00 am to 10.00 pm</span>
+        </div>
+
+        <a href="tel:+8801234567890" class="topbar-item link">
+            <div class="icon">
+                <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+            </div>
+
+            <span class="span">+8801234567890</span>
+        </a>
+
+        <div class="separator"></div>
+
+        <a href="mailto:booking@spice.com" class="topbar-item link">
+            <div class="icon">
+                <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+            </div>
+
+            <span class="span">booking@spice.com</span>
+        </a>
+
+        </div>
+    </div>
+
+    <main>
+        <article>
+        <section class="login" aria-label="login" id="login">
+            <div class="form-container">
+                <form action="" method="post">
+                   <h3>Login now</h3>
+                    <?php
+                    if(isset($error)){
+                        foreach($error as $error){
+                            echo '<span class="error-msg">'.$error.'</span>';
+                        };
+                    };
+                    ?>
+                   <input type="email" name="email" required placeholder="Enter your email">
+                   <input type="password" name="password" required placeholder="Enter your password">
+                   <input type="submit" name="submit" value="login now" class="form-btn">
+                   <p>Don't have an account? <a href="/php/register.php">Register Now</a></p>
+                </form>
+             
+             </div>
+        </section>
+
+
+    <footer class="footer section has-bg-image text-center"
+    style="background-image: url('/image/footer-bg.jpg')">
+    <div class="container">
+
+
+            <div class="footer-bottom">
+
+            <p class="copyright">
+            &copy; 2023 Spice. All Rights Reserved | Crafted by Team Dawgs
+            </p>
+
+            </div>
+
+        </div>
+    </footer>
+    
+    
+    
+    <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
+        <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+    </a>
+    
+    
+    
+    
+    
+    <!-- 
+    - custom js link
+    -->
+    <script src="/js/script.js"></script>
+    
+    <!-- 
+    - ionicon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
