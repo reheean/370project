@@ -2117,3 +2117,54 @@ textarea.input-field {
    font-size: 20px;
    padding:10px;
 }
+
+.cartcard{
+  height: 150px;
+  border: 1px solid lightgoldenrodyellow;
+  margin: 20px;
+  display: flex;
+}
+
+.cartcard .cartimages{
+  width: 20%
+}
+
+.cartcard .cartimages .img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cartcard .cartcaption{
+  line-height: 3em;
+  margin-left: 30px;
+  position: relative;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cartcard .cartcaption .p{
+  font-size: 1.5em;
+}
+
+.cartcard .cartcaption .cartprice{
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.cartcard .cartcaption button{
+  background-color: rgba(83, 0, 0, 0.555);
+  color: white;
+  padding: 1em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-top: 2em;
+  font-weight: bold;
+  width: 30% 
+}
