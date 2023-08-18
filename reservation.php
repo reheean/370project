@@ -1,3 +1,27 @@
+<?php include 'config.php'; ?>
+
+<?php
+$name = $_POST['name'];
+$phone = $_POST['phone'];
+$people = $_POST['person'];
+$time = $_POST['time'];
+$date = $_POST['date'];
+
+// Prepare and bind the statement
+$stmt = $conn->prepare("INSERT INTO reservation ('$name', '$phone', '$person', '$time', '$date') VALUES (?, ?, ?, ?, ?)");
+$stmt->bind_param("ssis", $name, $phone, $person, $time, $date);
+
+// Execute the statement
+if ($stmt->execute()) {
+    echo "Reservation saved successfully!";
+} else {
+    echo "Error: " . $stmt->error;
+}
+
+// Close the statement and connection
+$stmt->close();
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -207,9 +231,9 @@
                 <h2 class="headline-1 text-center">Online Reservation</h2>
 
                 <div class="input-wrapper">
-                    <input type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field">
+                    <input type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field" required>
 
-                    <input type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field">
+                    <input type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field" required>
                 </div>
 
                 <div class="input-wrapper">
@@ -233,7 +257,7 @@
                     <div class="icon-wrapper">
                     <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon>
 
-                    <input type="date" name="reservation-date" class="input-field">
+                    <input type="date" name="date" class="input-field" required>
 
                     <ion-icon name="chevron-down" aria-hidden="true"></ion-icon>
                     </div>
@@ -241,7 +265,7 @@
                     <div class="icon-wrapper">
                     <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
 
-                    <select name="person" class="input-field">
+                    <select name="time" class="input-field">
                         <option value="08:00am">08 : 00 am</option>
                         <option value="09:00am">09 : 00 am</option>
                         <option value="010:00am">10 : 00 am</option>
