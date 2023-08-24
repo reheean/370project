@@ -152,7 +152,7 @@ $conn->close();
       <ul class="navbar-list">
 
           <li class="navbar-item">
-              <a href="#home" class="navbar-link hover-underline active">
+              <a href="/370project/user.php" class="navbar-link hover-underline active">
                   <div class="separator"></div>
 
                   <span class="span">Home</span>
@@ -160,7 +160,7 @@ $conn->close();
           </li>
 
           <li class="navbar-item">
-              <a href="#menu" class="navbar-link hover-underline">
+              <a href="/370project/menu.php" class="navbar-link hover-underline">
                   <div class="separator"></div>
 
                   <span class="span">Menus</span>
@@ -168,7 +168,7 @@ $conn->close();
           </li>
 
           <li class="navbar-item">
-              <a href="#about" class="navbar-link hover-underline">
+              <a href="/370project/user.php" class="navbar-link hover-underline">
                   <div class="separator"></div>
 
                   <span class="span">About Us</span>
@@ -176,7 +176,7 @@ $conn->close();
           </li>
 
           <li class="navbar-item">
-              <a href="#" class="navbar-link hover-underline">
+              <a href="/370project/user.php" class="navbar-link hover-underline">
                   <div class="separator"></div>
 
                   <span class="span">Contact</span>
@@ -207,10 +207,10 @@ $conn->close();
 
       </nav>
 
-      <a href="/php/login.php" class="btn btn-secondary">
-          <span class="text text-1">Login</span>
+      <a href="/370project/index.php" class="btn btn-secondary">
+          <span class="text text-1">Log Out</span>
 
-          <span class="text text-2" aria-hidden="true">Login</span>
+          <span class="text text-2" aria-hidden="true">Log Out</span>
       </a>
 
       <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
