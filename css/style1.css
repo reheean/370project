@@ -312,7 +312,7 @@ a.btn.btn-outline-succes{
   opacity: 1;
   pointer-events: all;
 }  
-  .back-top-btn.active {
-    opacity: 1;
-    visibility: visible;
-  }
+.back-top-btn.active {
+  opacity: 1;
+  visibility: visible;
+}
