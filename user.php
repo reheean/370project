@@ -764,7 +764,7 @@
   <!-- 
     - custom js link
   -->
-  <script src="/js/script.js"></script>
+  <script src="/370project/js/script.js"></script>
 
   <!-- 
     - ionicon link
