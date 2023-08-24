@@ -128,7 +128,8 @@ $all_cart = $conn->query($sql_cart);
         </div>
     </div>
     <?php
-
+    }
+  }
     ?>
 
 </main> 
