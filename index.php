@@ -233,7 +233,7 @@
                     Visit us with your loved ones
                 </p>
 
-                <a href="#menu" class="btn btn-primary slider-reveal">
+                <a href="/370project/login.php" class="btn btn-primary slider-reveal">
                     <span class="text text-1">View Our Menu</span>
 
                     <span class="text text-2" aria-hidden="true">View Our Menu</span>
@@ -258,7 +258,7 @@
                     Visit us with your loved ones
                 </p>
 
-                <a href="#menu" class="btn btn-primary slider-reveal">
+                <a href="/370project/login.php" class="btn btn-primary slider-reveal">
                     <span class="text text-1">View Our Menu</span>
 
                     <span class="text text-2" aria-hidden="true">View Our Menu</span>
@@ -283,7 +283,7 @@
                     Visit us with your loved ones
                 </p>
 
-                <a href="#menu" class="btn btn-primary slider-reveal">
+                <a href="/370project/login.php" class="btn btn-primary slider-reveal">
                     <span class="text text-1">View Our Menu</span>
 
                     <span class="text text-2" aria-hidden="true">View Our Menu</span>
@@ -301,7 +301,7 @@
             <ion-icon name="chevron-forward"></ion-icon>
         </button>
 
-        <a href="/php/login.php" class="hero-btn has-after">
+        <a href="/370project/login.php" class="hero-btn has-after">
             <img src="/370project/image/teb.png" width="48" height="48" alt="booking icon">
 
             <span class="label-2 text-center span">Book A Table</span>
@@ -334,7 +334,7 @@
                 <li>
                     <div class="service-card">
 
-                        <a href="#" class="has-before hover:shine">
+                        <a href="/370project/login.php" class="has-before hover:shine">
                             <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
                             <img src="/370project/image/service1.jpg" width="285" height="336" loading="lazy" alt="Appetizers"
                             class="img-cover">
@@ -344,10 +344,10 @@
                         <div class="card-content">
 
                             <h3 class="title-4 card-title">
-                                <a href="#">Appetizers</a>
+                                <a href="/370project/login.php">Appetizers</a>
                             </h3>
 
-                            <a href="/php/login.php" class="btn-text hover-underline label-2">View Menu</a>
+                            <a href="/370project/login.php" class="btn-text hover-underline label-2">View Menu</a>
 
                         </div>
 
@@ -357,7 +357,7 @@
                 <li>
                     <div class="service-card">
 
-                        <a href="#" class="has-before hover:shine">
+                        <a href="/370project/login.php" class="has-before hover:shine">
                             <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
                             <img src="/370project/image/service2.jpg" width="285" height="336" loading="lazy" alt="Main"
                             class="img-cover">
@@ -367,7 +367,7 @@
                         <div class="card-content">
 
                             <h3 class="title-4 card-title">
-                                <a href="#">Main</a>
+                                <a href="/370project/login.php">Main</a>
                             </h3>
 
                             <a href="/php/login.php" class="btn-text hover-underline label-2">View Menu</a>
@@ -380,7 +380,7 @@
                 <li>
                     <div class="service-card">
 
-                        <a href="#" class="has-before hover:shine">
+                        <a href="/370project/login.php" class="has-before hover:shine">
                             <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
                                 <img src="/370project/image/service3.jpg" width="285" height="336" loading="lazy" alt="Desserts"
                                 class="img-cover">
@@ -390,7 +390,7 @@
                         <div class="card-content">
 
                             <h3 class="title-4 card-title">
-                                <a href="#">Desserts</a>
+                                <a href="/370project/login.php">Desserts</a>
                             </h3>
 
                             <a href="/php/login.php" class="btn-text hover-underline label-2">View Menu</a>
@@ -485,7 +485,7 @@
 
                             <div class="title-wrapper">
                                 <h3 class="title-3">
-                                <a href="#" class="card-title">Cashew Nut Salad</a>
+                                <a href="/370project/login.php" class="card-title">Cashew Nut Salad</a>
                                 </h3>
 
                                 <span class="badge label-1">Appetizers</span>
@@ -514,7 +514,7 @@
 
                             <div class="title-wrapper">
                                 <h3 class="title-3">
-                                    <a href="#" class="card-title">Lasagna</a>
+                                    <a href="/370project/login.php" class="card-title">Lasagna</a>
                                 </h3>
                                 <span class="badge label-1">Main</span>
                                 <span class="span title-2">675 BDT</span>
@@ -541,7 +541,7 @@
 
                             <div class="title-wrapper">
                                 <h3 class="title-3">
-                                    <a href="#" class="card-title">Biryani</a>
+                                    <a href="/370project/login.php" class="card-title">Biryani</a>
                                 </h3>
                                 <span class="badge label-1">Main</span>
 
@@ -569,7 +569,7 @@
 
                             <div class="title-wrapper">
                                 <h3 class="title-3">
-                                    <a href="#" class="card-title">Classic Pizza</a>
+                                    <a href="/370project/login.php" class="card-title">Classic Pizza</a>
                                 </h3>
                                 <span class="badge label-1">Main</span>
 
@@ -597,7 +597,7 @@
 
                             <div class="title-wrapper">
                                 <h3 class="title-3">
-                                    <a href="#" class="card-title">Cheesecake</a>
+                                    <a href="/370project/login.php" class="card-title">Cheesecake</a>
                                 </h3>
                                 <span class="badge label-1">Dessert</span>
 
@@ -625,7 +625,7 @@
 
                             <div class="title-wrapper">
                                 <h3 class="title-3">
-                                    <a href="#" class="card-title">Pudding</a>
+                                    <a href="/370project/login.php" class="card-title">Pudding</a>
                                 </h3>
                                 <span class="badge label-1">Dessert</span>
 
@@ -647,7 +647,7 @@
                     Open Daily drom <span class="span">8:00 am</span> to <span class="span">10:00 pm</span>
                 </p>
 
-                <a href="#" class="btn btn-primary">
+                <a href="/370project/login.php" class="btn btn-primary">
                     <span class="text text-1">View All Menu</span>
 
                     <span class="text text-2" aria-hidden="true">View All Menu</span>
