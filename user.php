@@ -28,7 +28,7 @@
   <!-- 
     - custom css link
   -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/370project/css/style.css">
 
   <!-- 
     - preload images
