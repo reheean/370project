@@ -1,27 +1,34 @@
 <?php include 'config.php'; ?>
 
+
 <?php
-$name = $_POST['name'];
-$phone = $_POST['phone'];
-$people = $_POST['person'];
-$time = $_POST['time'];
-$date = $_POST['date'];
 
-// Prepare and bind the statement
-$stmt = $conn->prepare("INSERT INTO reservation ('$name', '$phone', '$person', '$time', '$date') VALUES (?, ?, ?, ?, ?)");
-$stmt->bind_param("ssis", $name, $phone, $person, $time, $date);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    file_put_contents('debug.log', 'worked', FILE_APPEND);
 
-// Execute the statement
-if ($stmt->execute()) {
-    echo "Reservation saved successfully!";
-} else {
-    echo "Error: " . $stmt->error;
+    $name = $_POST["name"];
+    $phone = $_POST["phone"];
+    $person = $_POST["person"];
+    $date = $_POST["date"];
+    $time = $_POST["time"];
+    $message = $_POST["message"];
+    file_put_contents('debug.log', $name, FILE_APPEND);
+
+    $insertQuery = "INSERT INTO reservations (name, phone, person, date, time, message) VALUES ('$name', '$phone', '$person', '$date', '$time', '$message')";
+    
+    if ($conn->query($insertQuery) === TRUE) {
+
+        echo "Reservation added successfully!";
+    } else {
+        echo "Error: " . $insertQuery . "<br>" . $conn->error;
+    }
 }
 
-// Close the statement and connection
-$stmt->close();
 $conn->close();
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +59,7 @@ $conn->close();
   <!-- 
     - custom css link
   -->
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/370project/css/style.css">
 
   <!-- 
     - preload images
@@ -226,7 +233,7 @@ $conn->close();
 
             <div class="form reservation-form bg-black-10">
 
-                <form action="" class="form-left">
+                <form action="/370project/reservation.php" method="POST" class="form-left">
 
                 <h2 class="headline-1 text-center">Online Reservation</h2>
 
@@ -290,10 +297,9 @@ $conn->close();
                 <textarea name="message" placeholder="Message" autocomplete="off" class="input-field"></textarea>
 
                 <button type="submit" class="btn btn-secondary">
-                    <span class="text text-1">Book A Table</span>
-
-                    <span class="text text-2" aria-hidden="true">Book A Table</span>
-                </button>
+        <span class="text text-1">Book A Table</span>
+        <span class="text text-2" aria-hidden="true">Book A Table</span>
+    </button>
 
                 </form>
 
@@ -362,7 +368,7 @@ $conn->close();
     <!-- 
     - custom js link
     -->
-    <script src="/js/script.js"></script>
+    <script src="/370project/js/script.js"></script>
     
     <!-- 
     - ionicon link

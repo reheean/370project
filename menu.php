@@ -1,3 +1,6 @@
+<?php include 'config.php'; ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,149 +51,111 @@
             </div>
             <div class="menus">
                 <div class="menu-items">
-                    <div class="title">Appetizers</div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/menu-1" alt="">
-                        <span>350bdt</span>
-                        <h4>Cashewnut Salad</h4>
-                        <button class="btn">Add To Cart</button>
-                        
-                       
 
-                        
-                        
-    
-                    </div>
-                    <div class="single-menu">
+                <?php
+
+$query = "SELECT item_category, item_image, item_name, item_price FROM menus WHERE item_category = 'Appetizers'";
+$result = $conn->query($query);
+
+
+$items = array();
+
+while ($row = $result->fetch_assoc()) {
+    $items[] = $row;
+}
+
+
+?>
+                    <div class="title">Appetizers</div>
+                    <?php foreach ($items as $item) { ?>
+    <div class="single-menu">
+        <img src="<?php echo $item['item_image']; ?>" alt="">
+        <span><?php echo $item['item_price']; ?></span>
+        <h4><?php echo $item['item_name']; ?></h4>
+        <button class="btn">Add To Cart</button>
+    </div>
+<?php } ?>
                     
-                        <img src="/370project/image/wings.jpg" alt="">
-                        <span>165bdt</span>
-                        <h4>Buffalo Wings</h4>
-                        <button class="btn">Add To Cart</button>
-    
-                    </div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/frenchfries.jpg" alt="">
-                        <span>100bdt</span>
-                        <h4>French Fries</h4>
-                        <button class="btn">Add To Cart</button>
-    
-                    </div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/friend chicken.jpg" alt="">
-                        <span>110bdt</span>
-                        <h4>Fried Chicken</h4>
-                        <button class="btn">Add To Cart</button>
-                    </div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/onionrings.jpg" alt="">
-                        <span>150bdt</span>
-                        <h4>Onion Rings</h4>
-                        <button class="btn">Add To Cart</button>
-    
-                    </div>
                 </div>
                 <div class="menu-items">
+
+                <?php
+
+$query = "SELECT item_category, item_image, item_name, item_price FROM menus WHERE item_category = 'Main Dish'";
+$result = $conn->query($query);
+
+
+$items = array();
+
+while ($row = $result->fetch_assoc()) {
+    $items[] = $row;
+}
+
+
+?>
                     <div class="title">Main Dish</div>
-                    <div class="single-menu">
+                    <?php foreach ($items as $item) { ?>
+    <div class="single-menu">
+        <img src="<?php echo $item['item_image']; ?>" alt="">
+        <span><?php echo $item['item_price']; ?></span>
+        <h4><?php echo $item['item_name']; ?></h4>
+        <button class="btn">Add To Cart</button>
+    </div>
+<?php } ?>
                     
-                        <img src="image/menu-3" alt="">
-                        <span>300bdt</span>
-                        <h4>Biriyani</h4>
-                        <button class="btn">Add To Cart</button>
-    
-                    </div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/menu-4.jpg" alt="">
-                        <span>650bdt</span>
-                        <h4>Classic Pizza</h4>
-                        <button class="btn">Add To Cart</button>
-    
-                    </div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/menu-2.jpg" alt="">
-                        <span>670bdt</span>
-                        <h4>Lasagna</h4>
-                        <button class="btn">Add To Cart</button>
-    
-                    </div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/chowmein.jpg" alt="">
-                        <span>300bdt</span>
-                        <h4>Chowmein</h4>
-                        <button class="btn">Add To Cart</button>
-    
-                    </div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/pasta.jpg" alt="">
-                        <span>350bdt</span>
-                        <h4>Baked Pasta</h4>
-                        <button class="btn">Add To Cart</button>
-    
-                    </div>
                 </div>
                 <div class="menu-items">
+
+                <?php
+
+$query = "SELECT item_category, item_image, item_name, item_price FROM menus WHERE item_category = 'Desserts'";
+$result = $conn->query($query);
+
+
+$items = array();
+
+while ($row = $result->fetch_assoc()) {
+    $items[] = $row;
+}
+
+?>
                     <div class="title">Desserts</div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/cheesecake.jpg" alt="">
-                        <span>400bdt</span>
-                        <h4>Cheese Cake</h4>
-                        <button class="btn">Add To Cart</button>
-    
-                    </div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/brownie.jpg" alt="">
-                        <span>150bdt</span>
-                        <h4>Brownie</h4>
-                        <button class="btn">Add To Cart</button>
-    
-                    </div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/pudding.jpg" alt="">
-                        <span>200bdt</span>
-                        <h4>Pudding</h4>
-                        <button class="btn">Add To Cart</button>
-    
-                    </div>
+                    <?php foreach ($items as $item) { ?>
+    <div class="single-menu">
+        <img src="<?php echo $item['item_image']; ?>" alt="">
+        <span><?php echo $item['item_price']; ?></span>
+        <h4><?php echo $item['item_name']; ?></h4>
+        <button class="btn">Add To Cart</button>
+    </div>
+<?php } ?>
                     
                     
                 </div>
                 <div class="menu-items">
+
+                <?php
+
+$query = "SELECT item_category, item_image, item_name, item_price FROM menus WHERE item_category = 'Drinks'";
+$result = $conn->query($query);
+
+
+$items = array();
+
+while ($row = $result->fetch_assoc()) {
+    $items[] = $row;
+}
+
+$conn->close();
+?>
                     <div class="title">Drinks</div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/coldcoffe.jpg" alt="">
-                        <span>150bdt</span>
-                        <h4>Cold Coffee</h4>
-                        <button class="btn">Add To Cart</button>
-    
-                    </div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/milkshake.jpg" alt="">
-                        <span>200bdt</span>
-                        <h4>Milk Shake</h4>
-                        <button class="btn">Add To Cart</button>
-                    </div>
-                    <div class="single-menu">
-                    
-                        <img src="/370project/image/juice.jpg" alt="">
-                        <span>150bdt</span>
-                        <h4>Fresh Juice</h4>
-                        <button class="btn">Add To Cart</button>
-    
-                    </div>
+                    <?php foreach ($items as $item) { ?>
+    <div class="single-menu">
+        <img src="<?php echo $item['item_image']; ?>" alt="">
+        <span><?php echo $item['item_price']; ?></span>
+        <h4><?php echo $item['item_name']; ?></h4>
+        <button class="btn">Add To Cart</button>
+    </div>
+<?php } ?>
                     
                     
                 </div>
@@ -201,5 +166,17 @@
    
         
     </section>
+
+
+     <!-- 
+    - custom js link
+  -->
+  <script src="/370project/js/script.js"></script>
+
+<!-- 
+  - ionicon link
+-->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     
 </body>

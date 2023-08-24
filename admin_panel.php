@@ -1,210 +1,198 @@
 <?php include 'config.php'; ?>
+<?php
 
+$error = array();
+
+// Process form data if the form was submitted
+if (isset($_POST['submit_add_item_to_menu'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') { 
+   file_put_contents('debug.log', 'worked', FILE_APPEND);
+    $item_category = $_POST['item_category'];
+    $item_name = $_POST['item_name'];
+    $item_price = $_POST['item_price'];
+
+   $item_image = $_POST['item_image'];
+   file_put_contents('debug.log', $item_name, FILE_APPEND);
+   $insertQuery = "INSERT INTO menus (item_category, item_image, item_name, item_price)
+      VALUES ('$item_category', '$item_image', '$item_name', $item_price)";
+
+
+if(mysqli_query($conn, $insertQuery)) {
+   $error[] = "Data inserted successfully";
+} else {
+   $error[] = 'Error during registration: ' . mysqli_error($conn);
+}}
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Project Spice Kitchen Admin Panel</title>
+      <link rel="stylesheet" href="/370project/css/admin.css">
+   </head>
+   <body>
+      <?php
+         $conn = new mysqli($servername, $username, $password, $dbname);
+         
+         if ($conn->connect_error) {
+             die("Connection failed: " . $conn->connect_error);
+         }
+         
+         echo 'connected';
+         ?>
+      <div class="admin-panel clearfix">
+         <div class="slidebar">
+            <div class="logo">
+               <a href=""></a>
+            </div>
+            <ul>
+               <li><a href="#menu" id="targeted">menu</a></li>
+               <li><a href="#reservation">reservation</a></li>
+            </ul>
+         </div>
+         <div class="main">
+            <div class="mainContent clearfix">
+               <div id="menu">
+                  <h2 class="header"></span>Menu Dashboard</h2>
+                  <div class="monitor">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Spice Kitchen Admin Panel</title>
-  <link rel="stylesheet" href="/370project/css/admin.css">
-</head>
+                  <?php
 
-<body>
+$query = "SELECT item_category, item_image, item_name, item_price FROM menus";
+$result = $conn->query($query);
 
-<?php
-    $conn = new mysqli($servername, $username, $password, $dbname);
+// Fetch data and populate into arrays
+$itemCategories = array();
+$itemImages = array();
+$itemNames = array();
+$itemPrices = array();
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+while ($row = $result->fetch_assoc()) {
+    $itemCategories[] = $row["item_category"];
+    $itemImages[] = $row["item_image"];
+    $itemNames[] = $row["item_name"];
+    $itemPrices[] = $row["item_price"];
+}
+?>
+                     <div class="clearfix">
+                     <ul class="menuItems">
+                     <li class='menuItem'>Category</li>
+        <?php foreach ($itemCategories as $category) { ?>
+            <li class='menuItem'><?php echo $category; ?></li>
+        <?php } ?>
+                        </ul>
+                        <ul class="menuItems">
+                        <li class='menuItem'>Image</li>
+        <?php foreach ($itemImages as $image) { ?>
+            <li class='menuItem'><?php echo $image; ?></li>
+        <?php } ?>
+                        </ul>
+                        <ul class="menuItems">
+                        <li class='menuItem'>Item Name</li>
+        <?php foreach ($itemNames as $name) { ?>
+            <li class='menuItem'><?php echo $name; ?></li>
+        <?php } ?>
+                        </ul>
+                        <ul class="menuItems">
+                        <li class='menuItem'>Price</li>
+        <?php foreach ($itemPrices as $price) { ?>
+            <li class='menuItem'><?php echo $price; ?></li>
+        <?php } ?>
+                        </ul>
+                        
+                     </div>
+                     <!--  -->
 
-    echo 'connected';
+                     <h2>Add Item to Menu</h2>
+    <form action="/370project/admin_panel.php#menu" method="post" enctype="multipart/form-data">
+        <label for="item_category">Item Category:</label>
+        <input type="text" name="item_category" required><br><br>
+        
+        <label for="item_image">Item Image:</label>
+       
+        <input type="text" name="item_image" required><br><br>
+        
+        <label for="item_name">Item Name:</label>
+        <input type="text" name="item_name" required><br><br>
+        
+        <label for="item_price">Item Price:</label>
+        <input type="number" name="item_price" step="0.01" required><br><br>
+        
+        <input type="submit" name="submit_add_item_to_menu" value="Add Item">
 
-    $conn->close();
-    ?>
+        <?php
+            if(!empty($error)){
+                foreach($error as $errorMsg){
+                    echo '<span class="error-msg">'.$errorMsg.'</span>';
+                }
+            }
+            ?>
+    </form>
+
+    <!--  -->
+                  </div>
+               </div>
+               <div id="reservation">
+
+
+               <?php
+
+$query = "SELECT name, phone, time FROM reservations";
+$result = $conn->query($query);
+
+// Fetch data and populate into arrays
+$names = array();
+$phones = array();
+$times = array();
+
+while ($row = $result->fetch_assoc()) {
+    $names[] = $row["name"];
+    $phones[] = $row["phone"];
+    $times[] = $row["time"];
+}
+
+$conn->close();
+?>
+                  <h2 class="header">Reservation</h2>
+
+                  <div class="monitor">
+                  <div class="clearfix"> 
+
+                  <ul class="menuItems">
+                        <li class='menuItem'>Name</li>
+        <?php foreach ($names as $name) { ?>
+            <li class='menuItem'><?php echo $name; ?></li>
+        <?php } ?>
+                        </ul>
 
 
 
+                        <ul class="menuItems">
+                        <li class='menuItem'>Phone</li>
+        <?php foreach ($phones as $phone) { ?>
+            <li class='menuItem'><?php echo $phone; ?></li>
+        <?php } ?>
+                        </ul>
 
-  <div class="header">
-    <h1>Spice Kitchen Admin Panel</h1>
-  </div>
-  <div class="container">
-    <div class="sidebar">
-      <div class="tab" onclick="openTab('menu')">Menu</div>
-      <div class="tab" onclick="openTab('reservation')">Reservations</div>
-      <div class="tab" onclick="openTab('employee')">Employees</div>
-    </div>
-    <div class="content">
-      <div class="menu-section" id="menu-section">
-        <h2>Menu Management</h2>
-        <div class="menu-item-header">
-          <div>Item Name</div>
-          <div>Price</div>
-          <div>Remove</div>
-        </div>
-        <div class="section-content" id="starter-section">
-          <div class="menu-item">
-            <p class="menu-item-name">Fries</p>
-            <input type="number" class="price-input" value="5">
-            <button class="delete-button" onclick="deleteMenuItem(this)">Delete</button>
-          </div>
-          <div class="menu-item">
-            <p class="menu-item-name">Wings</p>
-            <input type="number" class="price-input" value="8">
-            <button class="delete-button" onclick="deleteMenuItem(this)">Delete</button>
-          </div>
-          <button class="add-button" onclick="addNewItem('starter')">Add New Item</button>
-        </div>
-        <div class="section" id="reservation-section">
-          <h2>Reservation Management</h2>
-          <!-- Add button to cancel reservations -->
-          <div class="reservation-item">Reservation 1</div>
-          <div class="reservation-item">Reservation 2</div>
-          <div class="reservation-item">Reservation 3</div>
-        </div>
-        <div class="section" id="employee-section">
-          <h2>Employee Management</h2>
-          <!-- Add form for changing employee salaries -->
-          <div class="employee-item">Employee 1</div>
-          <div class="employee-item">Employee 2</div>
-          <div class="employee-item">Employee 3</div>
-        </div>
+
+
+                        <ul class="menuItems">
+                        <li class='menuItem'>Time</li>
+        <?php foreach ($times as $time) { ?>
+            <li class='menuItem'><?php echo $time; ?></li>
+        <?php } ?>
+                        </ul>
+
+                        </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         
       </div>
-    </div>
-
-    <script>
-      function openTab(tabName) {
-        const sections = document.querySelectorAll('.section');
-        const tabs = document.querySelectorAll('.tab');
-
-        sections.forEach(section => {
-          section.classList.remove('active');
-        });
-
-        tabs.forEach(tab => {
-          tab.classList.remove('active-tab');
-        });
-
-        document.getElementById(tabName + '-section').classList.add('active');
-        document.querySelector(`.tab[onclick="openTab('${tabName}')"]`).classList.add('active-tab');
-      }
-      function addMenuItem() {
-        const menuSection = document.getElementById('menu-section');
-        const menuItem = document.createElement('div');
-        menuItem.classList.add('menu-item');
-
-        const itemNameInput = document.createElement('input');
-        itemNameInput.type = 'text';
-        itemNameInput.classList.add('menu-item-name');
-        itemNameInput.value = 'New Item';
-
-        const priceInput = document.createElement('input');
-        priceInput.type = 'number';
-        priceInput.classList.add('price-input');
-        priceInput.value = '0';
-
-        const deleteButton = document.createElement('button');
-        deleteButton.classList.add('delete-button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.onclick = function () {
-          deleteMenuItem(this);
-        };
-
-        menuItem.appendChild(itemNameInput);
-        menuItem.appendChild(priceInput);
-        menuItem.appendChild(deleteButton);
-
-        menuSection.insertBefore(menuItem, menuSection.lastChild);
-      }
-
-      function deleteMenuItem(button) {
-        const menuItem = button.closest('.menu-item');
-        const sectionContent = menuItem.closest('.section-content');
-        sectionContent.removeChild(menuItem);
-      }
-
-      function addNewItem(section) {
-        const sectionContent = document.getElementById(`${section}-section`);
-        const newItem = document.createElement('div');
-        newItem.classList.add('menu-item');
-
-        const itemNameInput = document.createElement('input');
-        itemNameInput.type = 'text';
-        itemNameInput.classList.add('menu-item-name');
-        itemNameInput.placeholder = 'Enter item name';
-
-        const priceInput = document.createElement('input');
-        priceInput.type = 'number';
-        priceInput.classList.add('price-input');
-        priceInput.value = '0';
-
-        const addButton = document.createElement('button');
-        addButton.classList.add('add-button');
-        addButton.textContent = 'Add';
-        addButton.onclick = function () {
-          saveNewItem(this);
-        };
-
-        const cancelButton = document.createElement('button');
-        cancelButton.classList.add('delete-button');
-        cancelButton.textContent = 'Cancel';
-        cancelButton.onclick = function () {
-          cancelAddNewItem(this);
-        };
-
-        newItem.appendChild(itemNameInput);
-        newItem.appendChild(priceInput);
-        newItem.appendChild(addButton);
-        newItem.appendChild(cancelButton);
-
-        sectionContent.insertBefore(newItem, sectionContent.lastChild.previousSibling);
-      }
-
-      function saveNewItem(button) {
-        const newItem = button.parentNode;
-        const itemNameInput = newItem.querySelector('.menu-item-name');
-        const priceInput = newItem.querySelector('.price-input');
-
-        const itemName = itemNameInput.value;
-        const price = priceInput.value;
-
-        // Perform validation and save to backend if needed
-
-        // Replace the newItem form with a regular menu item display
-        const regularMenuItem = document.createElement('div');
-        regularMenuItem.classList.add('menu-item');
-
-        const itemNameDisplay = document.createElement('p');
-        itemNameDisplay.classList.add('menu-item-name');
-        itemNameDisplay.textContent = itemName;
-
-        const priceDisplay = document.createElement('input');
-        priceDisplay.classList.add('price-input');
-        priceDisplay.value = price;
-        priceDisplay.disabled = true;
-
-        const deleteButton = document.createElement('button');
-        deleteButton.classList.add('delete-button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.onclick = function () {
-          deleteMenuItem(this);
-        };
-
-        regularMenuItem.appendChild(itemNameDisplay);
-        regularMenuItem.appendChild(priceDisplay);
-        regularMenuItem.appendChild(deleteButton);
-
-        newItem.parentNode.replaceChild(regularMenuItem, newItem);
-      }
-
-      function cancelAddNewItem(button) {
-        const newItem = button.parentNode;
-        newItem.parentNode.removeChild(newItem);
-      }
-    </script>
-</body>
-
+      </div>
+   </body>
 </html>
