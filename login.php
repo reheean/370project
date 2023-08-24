@@ -20,11 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             file_put_contents('debug.log', $row['user_type'], FILE_APPEND);
             if ($row['user_type'] == 'Admin') {
                 $_SESSION['email'] = $row['email'];
-                echo '<script>window.location.href = "admin_panel.php";</script>';
+                echo '<script>window.location.href = "/370project/admin_panel.php";</script>';
                 exit();
             } elseif ($row['user_type'] == 'User') {
                 $_SESSION['email'] = $row['email'];
-                echo '<script>window.location.href = "index.php";</script>';
+                echo '<script>window.location.href = "/370project/index.php";</script>';
                 exit();
             }
         } else {
