@@ -9,7 +9,7 @@ if (isset($_GET["id"])){
     $total_cart_result = $conn->query($total_cart);
     $cart_num =mysqli_num_rows($total_cart_result);
 
-    if(mysql_num_rows(result) > 0){
+    if(mysqli_num_rows($result) > 0){
         $in_cart = "Already in Cart";
         echo json_encode(["num_cart"=>$cart_num, "in_cart"=>$in_cart]);
     }else{
