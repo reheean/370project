@@ -5,6 +5,7 @@
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-decoration: none;
     color:black;
+    background-color: hsl(0, 0%, 20%);
 }
 
 html{
@@ -17,7 +18,8 @@ header{
     align-items: center;
     height: 50px;
     padding: 0 200px;
-    box-shadow: 1px 1px 1px 1px hsl(38, 61%, 73%);
+    box-shadow: 3px 3px 3px 3px black;
+    background-color: hsl(38, 61%, 73%);
 }
 header a{
     position: relative;
