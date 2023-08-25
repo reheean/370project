@@ -1,5 +1,5 @@
 <?php
-require_once '/370project/menu-cart-con.php';
+require_once 'menu-cart-con.php';
 
 $sql_cart = "SELECT * FROM cart";
 $all_cart = $conn->query($sql_cart);
