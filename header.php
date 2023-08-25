@@ -34,9 +34,8 @@
     <header>
         <div id=main_tabs">
             <a href="/370project/user.php">Home</a>
-            <a href="/370project/user.php">About US</a>
         </div>
-        <a href="/370project/checkout">Cart</a>
+        <a href="/370project/checkout.php">Cart</a>
     </header>
 </body>
 </html>
