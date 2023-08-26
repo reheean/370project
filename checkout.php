@@ -50,55 +50,6 @@ $all_cart = $conn->query($sql_cart);
       <p class="text">Spice</p>
   </div>
 
-
-<!-- 
-  - #TOP BAR
--->
-
-  <div class="topbar">
-      <div class="container">
-
-          <address class="topbar-item">
-          <div class="icon">
-              <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-          </div>
-
-          <span class="span">
-              123 st, Dhaka, Bangladesh
-          </span>
-          </address>
-
-      <div class="separator"></div>
-
-      <div class="topbar-item item-2">
-          <div class="icon">
-              <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-          </div>
-
-          <span class="span">Daily : 8.00 am to 10.00 pm</span>
-      </div>
-
-      <a href="tel:+8801234567890" class="topbar-item link">
-          <div class="icon">
-              <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-          </div>
-
-          <span class="span">+8801234567890</span>
-      </a>
-
-      <div class="separator"></div>
-
-      <a href="mailto:booking@spice.com" class="topbar-item link">
-          <div class="icon">
-              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-          </div>
-
-          <span class="span">booking@spice.com</span>
-      </a>
-
-      </div>
-  </div>
-
 <main>
   <article>
     <h1><?php echo mysqli_num_rows($all_cart); ?> Items</h1>
