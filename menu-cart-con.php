@@ -3,7 +3,7 @@
 <?php
 if (isset($_GET["id"])){
     $item_id = $_GET["id"];
-    $sql = "SELECT * FROM cart WHERE item_id = $item_id";
+    $sql = "SELECT * FROM cart WHERE item_name = $item_name";
     $result = $conn->query($sql);
     $total_cart = "SELECT * FROM cart";
     $total_cart_result = $conn->query($total_cart);
@@ -13,7 +13,7 @@ if (isset($_GET["id"])){
         $in_cart = "Already in Cart";
         echo json_encode(["num_cart"=>$cart_num, "in_cart"=>$in_cart]);
     }else{
-        $insert = "INSERT INTO cart(item_id) VALUES(item_id)";
+        $insert = "INSERT INTO cart(item_name) VALUES(item_name)";
         if($conn->query($insert) === true){
             $in_cart = "Added to Cart";
             echo json_encode(["num_cart"=>$cart_num, "in_cart"=>$in_cart]);
@@ -26,7 +26,7 @@ if (isset($_GET["id"])){
 
 if(isset($_GET["cart_id"])){
     $product_id = $_GET["cart_id"];
-    $sql = "DELETE FROM cart WHERE item_id=".$item_id;
+    $sql = "DELETE FROM cart WHERE item_name=".$item_name;
 
     if($conn->query($sql) === True){
         echo "Removed from Cart";
