@@ -207,11 +207,11 @@ $conn->close();
 
       </nav>
 
-      <a href="/370project/index.php" class="btn btn-secondary">
-          <span class="text text-1">Log Out</span>
+        <a href="logout.php" class="btn btn-secondary1">
+            <span class="text text-1">Log Out</span>
 
-          <span class="text text-2" aria-hidden="true">Log Out</span>
-      </a>
+            <span class="text text-2" aria-hidden="true">Log Out</span>
+        </a>
 
       <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
           <span class="line line-1"></span>
@@ -233,8 +233,8 @@ $conn->close();
 
             <div class="form reservation-form bg-black-10">
 
-                <form action="/370project/reservation.php" method="POST" class="form-left">
-
+                <form action="book_table.php" method="POST" class="form-left">
+                <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
                 <h2 class="headline-1 text-center">Online Reservation</h2>
 
                 <div class="input-wrapper">
@@ -297,9 +297,9 @@ $conn->close();
                 <textarea name="message" placeholder="Message" autocomplete="off" class="input-field"></textarea>
 
                 <button type="submit" class="btn btn-secondary">
-        <span class="text text-1">Book A Table</span>
-        <span class="text text-2" aria-hidden="true">Book A Table</span>
-    </button>
+                    <span class="text text-1">Book A Table</span>
+                    <span class="text text-2" aria-hidden="true">Book A Table</span>
+                </button>
 
                 </form>
 
@@ -314,8 +314,8 @@ $conn->close();
                 <p class="contact-label">Location</p>
 
                 <address class="body-4">
-                    Restaurant St, Delicious City, <br>
-                    London 9578, UK
+                    123 St, Dhaka City, <br>
+                    Bangladesh
                 </address>
 
                 <p class="contact-label">Lunch Time</p>
