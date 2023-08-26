@@ -37,18 +37,10 @@ $all_cart = $conn->query($sql_cart);
     - custom css link
   -->
     <link rel="stylesheet" href="/css/style.css">
-
-  <!-- 
-    - preload images
-  -->
-    <link rel="preload" as="image" href="/370project/image/preloader1.jpg">
-    <link rel="preload" as="image" href="/370project/image/preloader2.jpg">
-    <link rel="preload" as="image" href="/370project/image/preloader3.jpg">
-
 </head>
 
 <body id="top">
-
+<?php include_once 'cartheader.php'; ?>
 <!-- 
   - #PRELOADER
 -->
