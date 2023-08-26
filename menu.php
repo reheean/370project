@@ -71,7 +71,11 @@ while ($row = $result->fetch_assoc()) {
         <img src="<?php echo $item['item_image']; ?>" alt="">
         <span><?php echo $item['item_price']; ?></span>
         <h4><?php echo $item['item_name']; ?></h4>
-        <button class="btn" type="submit">Add To Cart</button>
+        <form method="post" action="add_to_cart.php">
+          <input type="hidden" name="item_id" value="<?php echo $item['item_id']; ?>">
+          <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
+          <button class="btn" type="submit">Add To Cart</button>
+        </form>
     </div>
 <?php } ?>
                     
@@ -98,7 +102,11 @@ while ($row = $result->fetch_assoc()) {
         <img src="<?php echo $item['item_image']; ?>" alt="">
         <span><?php echo $item['item_price']; ?></span>
         <h4><?php echo $item['item_name']; ?></h4>
-        <button class="btn" type="submit">Add To Cart</button>
+        <form method="post" action="add_to_cart.php">
+          <input type="hidden" name="item_id" value="<?php echo $item['item_id']; ?>">
+          <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
+          <button class="btn" type="submit">Add To Cart</button>
+        </form>
     </div>
 <?php } ?>
                     
@@ -124,7 +132,11 @@ while ($row = $result->fetch_assoc()) {
         <img src="<?php echo $item['item_image']; ?>" alt="">
         <span><?php echo $item['item_price']; ?></span>
         <h4><?php echo $item['item_name']; ?></h4>
-        <button class="btn" type="submit">Add To Cart</button>
+        <form method="post" action="add_to_cart.php">
+          <input type="hidden" name="item_id" value="<?php echo $item['item_id']; ?>">
+          <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
+          <button class="btn" type="submit">Add To Cart</button>
+        </form>
     </div>
 <?php } ?>
                     
@@ -152,7 +164,11 @@ $conn->close();
         <img src="<?php echo $item['item_image']; ?>" alt="">
         <span><?php echo $item['item_price']; ?></span>
         <h4><?php echo $item['item_name']; ?></h4>
-        <button class="btn" type="submit">Add To Cart</button>
+        <form method="post" action="add_to_cart.php">
+          <input type="hidden" name="item_id" value="<?php echo $item['item_id']; ?>">
+          <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
+          <button class="btn" type="submit">Add To Cart</button>
+        </form>
     </div>
 <?php } ?>
                     
