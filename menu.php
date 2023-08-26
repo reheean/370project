@@ -71,12 +71,7 @@ while ($row = $result->fetch_assoc()) {
         <img src="<?php echo $item['item_image']; ?>" alt="">
         <span><?php echo $item['item_price']; ?></span>
         <h4><?php echo $item['item_name']; ?></h4>
-        <?php
-          echo '<form method="post" action="menu-cart-con.php">';
-          echo '<input type="hidden" name="item_name" value="' . $item['item_name'] . '">';
-          echo '<button class="btn" type="submit">Add To Cart</button>';
-          echo '</form>';
-        ?>
+        <button class="btn" type="submit">Add To Cart</button>
     </div>
 <?php } ?>
                     
@@ -103,12 +98,7 @@ while ($row = $result->fetch_assoc()) {
         <img src="<?php echo $item['item_image']; ?>" alt="">
         <span><?php echo $item['item_price']; ?></span>
         <h4><?php echo $item['item_name']; ?></h4>
-        <?php
-          echo '<form method="post" action="menu-cart-con.php">';
-          echo '<input type="hidden" name="item_name" value="' . $item['item_name'] . '">';
-          echo '<button class="btn" type="submit">Add To Cart</button>';
-          echo '</form>';
-        ?>
+        <button class="btn" type="submit">Add To Cart</button>
     </div>
 <?php } ?>
                     
@@ -134,12 +124,7 @@ while ($row = $result->fetch_assoc()) {
         <img src="<?php echo $item['item_image']; ?>" alt="">
         <span><?php echo $item['item_price']; ?></span>
         <h4><?php echo $item['item_name']; ?></h4>
-        <?php
-          echo '<form method="post" action="menu-cart-con.php">';
-          echo '<input type="hidden" name="item_name" value="' . $item['item_name'] . '">';
-          echo '<button class="btn" type="submit">Add To Cart</button>';
-          echo '</form>';
-        ?>
+        <button class="btn" type="submit">Add To Cart</button>
     </div>
 <?php } ?>
                     
@@ -167,12 +152,7 @@ $conn->close();
         <img src="<?php echo $item['item_image']; ?>" alt="">
         <span><?php echo $item['item_price']; ?></span>
         <h4><?php echo $item['item_name']; ?></h4>
-        <?php
-          echo '<form method="post" action="menu-cart-con.php">';
-          echo '<input type="hidden" name="item_name" value="' . $item['item_name'] . '">';
-          echo '<button class="btn" type="submit">Add To Cart</button>';
-          echo '</form>';
-        ?>
+        <button class="btn" type="submit">Add To Cart</button>
     </div>
 <?php } ?>
                     
