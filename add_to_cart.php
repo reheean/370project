@@ -1,6 +1,7 @@
+<?php include 'config.php'; ?>
+
 <?php
 session_start();
-include 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user_id'])) {
     $user_id = $_POST['user_id'];
