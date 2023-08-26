@@ -90,7 +90,7 @@ $all_cart = $conn->query($sql_cart);
                     target.style.opacity = .3;
                 }
             }
-            xml.open("GET", "menu-cart-con.php?cart_id-"+cart_id, true);
+            xml.open("GET", "menu-cart-con.php?cart_id=" + cart_id, true);
             xml.send();
 
         })
