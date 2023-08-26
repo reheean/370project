@@ -175,5 +175,28 @@ $conn->close();
 -->
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+    // Get all "Add to Cart" buttons
+    var addToCartButtons = document.querySelectorAll('.menu-items .btn');
+
+    addToCartButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            // Get the item name from the adjacent h4 element
+            var itemName = button.previousElementSibling.textContent;
+
+            // Send data to PHP script
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'add_to_cart.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('productName=' + encodeURIComponent(itemName));
+        });
+    });
+</script>
+
+
+
+
+
+
     
 </body>
