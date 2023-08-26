@@ -185,7 +185,7 @@
 
         </nav>
 
-        <a href="logout.php" class="btn btn-secondary1">
+        <a href="/370project/logout.php" class="btn btn-secondary1">
             <span class="text text-1">Log Out</span>
 
             <span class="text text-2" aria-hidden="true">Log Out</span>

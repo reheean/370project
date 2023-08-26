@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <option value="Admin">Admin</option>
                 </select>
                 <input type="submit" name="Submit" value="Register Now" class="form-btn">
-                <p>Already have an account?<a href="/370project/login.php">Login Now</a></p>
+                <p>Already have an account?<a href="/370project/login1.php">Login Now</a></p>
             </form>
         </div>
         </section>

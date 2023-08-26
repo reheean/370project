@@ -184,7 +184,7 @@
 
         </nav>
 
-        <a href="/370project/login.php" class="btn btn-secondary">
+        <a href="/370project/login1.php" class="btn btn-secondary">
             <span class="text text-1">Login</span>
 
             <span class="text text-2" aria-hidden="true">Login</span>
