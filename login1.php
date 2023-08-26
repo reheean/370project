@@ -140,8 +140,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                    <h3>Login now</h3>
                     <?php
                     if(isset($error)){
-                        foreach($error as $error){
-                            echo '<span class="error-msg">'.$error.'</span>';
+                        foreach($error as $errorMsg){
+                            echo '<span class="error-msg">'.$errorMsg.'</span>';
                         };
                     };
                     ?>
