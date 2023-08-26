@@ -55,7 +55,7 @@ $all_cart = $conn->query($sql_cart);
     <h1><?php echo mysqli_num_rows($all_cart); ?> Items</h1>
     <br>
     <?php while($row_cart = mysqli_fetch_assoc($all_cart)){
-        $sql = "SELECT * FROM menu WHERE item_id=".$row_cart["item_id"];
+        $sql = "SELECT * FROM menu WHERE item_name=".$row_cart["item_name"];
         $all_item = $conn->query($sql);
         while($row = mysqli_fetch_assoc($all_item)){
     ?>
@@ -67,7 +67,7 @@ $all_cart = $conn->query($sql_cart);
         <div class="cartcaption">
             <p class="cartproduct_name"><?php echo $row["item_name"]; ?></p>
             <p class="cartprice"><i><?php echo $row["price"]; ?></i></p>
-            <button class="cartremove" data-id="<?php echo $row["item_id"]; ?>">Remove From Cart</button>
+            <button class="cartremove" data-id="<?php echo $row["item_name"]; ?>">Remove From Cart</button>
         </div>
     </div>
     <?php
