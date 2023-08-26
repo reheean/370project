@@ -4,6 +4,8 @@
 // Collect data from POST request
 $productName = $_POST['productName'];
 
+
+
 // Insert item_name into cart table
 $sqlInsert = "INSERT INTO cart (item_name) VALUES ('$productName')";
 if ($conn->query($sqlInsert) === TRUE) {

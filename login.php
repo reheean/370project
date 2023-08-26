@@ -6,7 +6,7 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $pass = md5($_POST['password']); // MD5 is not recommended for password hashing due to security vulnerabilities
+    $pass = ($_POST['password']); // MD5 is not recommended for password hashing due to security vulnerabilities
 
     $select = "SELECT * FROM user_form WHERE email = '$email' && password = '$pass' ";
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit();
             } elseif ($row['user_type'] == 'User') {
                 $_SESSION['email'] = $row['email'];
-                echo '<script>window.location.href = "/370project/index.php";</script>';
+                echo '<script>window.location.href = "/370project/user.php";</script>';
                 exit();
             }
         } else {

@@ -183,12 +183,14 @@ $conn->close();
         button.addEventListener('click', function() {
             // Get the item name from the adjacent h4 element
             var itemName = button.previousElementSibling.textContent;
+            
+            
 
             // Send data to PHP script
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'add_to_cart.php', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.send('productName=' + encodeURIComponent(itemName));
+            xhr.send('productName=' + encodeURIComponent(itemName) );
         });
     });
 </script>
